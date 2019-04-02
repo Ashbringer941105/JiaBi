@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driverClassName: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@114.116.88.94:1522:ORCL
+    username: jiabi
+    password: jiabi
+
+server:
+  port: 8001
