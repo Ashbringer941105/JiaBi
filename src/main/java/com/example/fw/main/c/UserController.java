@@ -2,6 +2,7 @@ package com.example.fw.main.c;
 
 import com.example.fw.base.BaseController;
 import com.example.fw.base.RequestType;
+import com.example.fw.main.Annotation.AuthToken;
 import com.example.fw.main.b.User;
 import com.myjar.Stringutil;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.Map;
 public class UserController extends BaseController {
 
     @RequestMapping(value ="/save", method = RequestMethod.POST)
+    @AuthToken
     public RequestType save(User mUser) throws Exception {
         if(mUser.getId()==null){
             if(Stringutil.isBlank(mUser.getUname()))
@@ -36,6 +38,7 @@ public class UserController extends BaseController {
 
     }
     @RequestMapping(value ="/list", method = RequestMethod.POST)
+    @AuthToken
     public RequestType list(User User,Integer page,Integer rows) throws Exception {
 
         List<User> dd = (List<com.example.fw.main.b.User>) mJiabiService.getALL(User,page,rows);

@@ -36,11 +36,13 @@ public class QiandaiController extends BaseController {
 
     }
     @RequestMapping(value ="/list", method = RequestMethod.POST)
+    @AuthToken
     public RequestType list(Qiandai mQiandai,Integer page,Integer rows) throws Exception {
         return sendTrueData(mQiandaiService.getALL(mQiandai,page,rows));
     }
 
     @RequestMapping(value ="/getByid", method = RequestMethod.POST)
+    @AuthToken
     public RequestType getByid(String id) throws Exception {
         if(Stringutil.isBlank(id)) return sendFalse("编号不可为空");
         return sendTrueData(mQiandaiService.getById(id));
