@@ -28,13 +28,6 @@ import com.myjar.desutil.RunException;
 public class BaseController {
 	@Autowired
 	protected JiabiService mJiabiService;
-    @RequestMapping(value ="/ttt", method = RequestMethod.POST)
-    @AuthToken
-    public Object ttt(HttpSession httpSession){
-        User dd = (User)httpSession.getAttribute("user");
-        //System.out.println(dd);
-        return dd;
-    }
 
 	@RequestMapping(value ="/login", method = RequestMethod.POST)
 	public RequestType login(User mUser,HttpServletRequest request, HttpSession httpSession) throws Exception {
@@ -51,6 +44,7 @@ public class BaseController {
 
 		mUser1.setPwd(null);
 		// 将用户加入到Session中
+        User xx = new User();
         httpSession.setAttribute("user", mUser1);
         Map<String, Object> map = new HashMap<>();
         map.put("user", mUser1);

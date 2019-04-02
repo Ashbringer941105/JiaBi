@@ -3,6 +3,7 @@ package com.example.fw.main.Aspect;
 import com.example.fw.base.RequestType;
 import com.example.fw.main.Annotation.AuthToken;
 import com.example.fw.main.b.User;
+import com.example.fw.main.s.JiabiService;
 import com.example.fw.main.s.RequestTypeService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -28,6 +29,8 @@ public class AuthTokenAspect {
 
     @Autowired
     private RequestTypeService requestTypeService;
+    @Autowired
+    protected JiabiService mJiabiService;
     /**
      * Spring中使用@Pointcut注解来定义方法切入点
      *
@@ -50,7 +53,7 @@ public class AuthTokenAspect {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         String[] role_name = authToken.role_name();
-        if (user==null){
+        if (user==null || (mJiabiService.getByparameter("uname",user.getUname())==null)){
             // TODO: 对于用户的登录以及权限控制有待完善
             return requestTypeService.sendFalse("无用户登录信息，请用户登录");
         }else {
