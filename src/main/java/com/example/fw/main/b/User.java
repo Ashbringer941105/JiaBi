@@ -11,6 +11,10 @@ public class User extends BaseEN {
     private String jiabi_suname;//上级账号，假币差错上级
     private String qiandai_suname;//上级账号，钱袋上级
 
+    // 20190404新加“所属网点”和“状态”属性
+    private String suo_swd; // 所属网点
+    private Long zhuang_t; // 状态
+
     public String getJiabi_suname() {
         return jiabi_suname;
     }
@@ -65,6 +69,21 @@ public class User extends BaseEN {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+    public String getSuo_swd() {
+        return suo_swd;
+    }
+
+    public void setSuo_swd(String suo_swd) {
+        this.suo_swd = suo_swd;
+    }
+
+    public Long getZhuang_t() {
+        return zhuang_t;
+    }
+
+    public void setZhuang_t(Long zhuang_t) {
+        this.zhuang_t = zhuang_t;
     }
 
 }

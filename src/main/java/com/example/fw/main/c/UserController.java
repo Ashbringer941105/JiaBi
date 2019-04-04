@@ -46,18 +46,5 @@ public class UserController extends BaseController {
     }
 
 
-//    @RequestMapping(value ="/login", method = RequestMethod.POST)
-//    public RequestType login(@RequestParam("uname") String uname,
-//                             @RequestParam("pwd") String pwd) throws Exception {
-//        if (uname == null | uname.equals("") ){
-//            return  sendFalse("账号不能为空");
-//        }
-//        Map ddd = mJiabiService.getByparameter("uname",uname);
-//        if (mJiabiService.getByparameter("uname",uname)==null){
-//            return  sendFalse("用户名不存在");
-//        }
-//        return  sendTrueMsg("更新成功");
-//    }
-
 
 }
